@@ -14,8 +14,6 @@ export default async function (req, res) {
       success: false,
       errors: [{ message: `No product exist with id ${id}` }],
       data: null,
-      allProductIds,
-      mainId,
     });
   }
   const targettedProduct = productList.filter((each) => each.id === id)[0];
