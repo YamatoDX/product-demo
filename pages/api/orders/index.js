@@ -14,7 +14,7 @@ export default async function (req, res) {
         data: null,
       });
     }
-    if (unit && !weightPerUnit) {
+    if (units && !weightPerUnit) {
       return res.status(400).json({
         success: false,
         errors: [
