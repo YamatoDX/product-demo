@@ -2,7 +2,7 @@ export default async function (req, res) {
   if (req.method === "POST") {
     const { name, price, cost, description, units, weightPerUnit, id, images } =
       req.body;
-    if (!name || !price || !cost || !id || images.length === 0) {
+    if (!name || !price || !cost || !id || (images || []).length === 0) {
       return res.status(400).json({
         success: false,
         errors: [
