@@ -28,6 +28,7 @@ export default async function (req, res) {
     const newProduct = {
       id,
       name,
+      cost,
       price,
       description: description || "",
       units: units || 0,
