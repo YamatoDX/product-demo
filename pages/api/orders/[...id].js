@@ -8,18 +8,25 @@ export default async function (req, res) {
   }
   const { id: mainId } = req.query;
   const id = mainId[0];
+  const allProductIds = productList.map((each) => each.id);
+  if (!allProductIds.includes(id)) {
+    return res.status(400).json({
+      success: false,
+      errors: [{ message: `No product exist with id ${id}` }],
+      data: null,
+      allProductIds,
+      mainId,
+    });
+  }
   const targettedProduct = productList.filter((each) => each.id === id)[0];
-  const updatedEnabledField = !(targettedProduct?.enabled ?? false);
-  const finalResult = targettedProduct
-    ? {
-        ...targettedProduct,
-        enabled: updatedEnabledField,
-      }
-    : null;
+  const updatedEnabledField = !targettedProduct.enabled;
   return res.status(200).json({
     success: true,
     errors: null,
-    data: finalResult,
+    data: {
+      ...targettedProduct,
+      enabled: updatedEnabledField,
+    },
   });
 }
 
