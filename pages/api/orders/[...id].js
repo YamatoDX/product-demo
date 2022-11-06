@@ -13,6 +13,7 @@ export default async function (req, res) {
     return res.status(400).json({
       success: false,
       errors: [{ message: `No product exist with id ${id}` }],
+      data: null,
     });
   }
   const targettedProduct = productList.filter((each) => each.id === id)[0];
