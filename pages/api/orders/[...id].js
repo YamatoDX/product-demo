@@ -6,7 +6,8 @@ export default async function (req, res) {
       data: null,
     });
   }
-  const { id } = req.query;
+  const { id: mainId } = req.query;
+  const id = mainId[0];
   const allProductIds = productList.map((each) => each.id);
   if (!allProductIds.includes(id)) {
     return res.status(400).json({
@@ -28,7 +29,7 @@ export default async function (req, res) {
 
 const productList = [
   {
-    id: "01",
+    id: "1",
     name: "Water, 500 mL",
     price: 300,
     enabled: true,
@@ -36,7 +37,7 @@ const productList = [
       "https://i.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
   },
   {
-    id: "02",
+    id: "2",
     name: "Milk, 1000mL",
     price: 250,
     enabled: false,
@@ -44,7 +45,7 @@ const productList = [
       "https://i.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4",
   },
   {
-    id: "03",
+    id: "3",
     name: "Rice, 1000g",
     price: 1000,
     enabled: true,
