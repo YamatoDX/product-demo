@@ -1,13 +1,14 @@
 export default async function (req, res) {
   if (req.method === "POST") {
-    const { name, price, cost, description, units, weightPerUnit } = req.body;
-    if (!name || !price || !cost) {
+    const { name, price, cost, description, units, weightPerUnit, id } =
+      req.body;
+    if (!name || !price || !cost || !id) {
       return res.status(400).json({
         success: false,
         errors: [
           {
             message:
-              "name, price, cost have to be provided for product creation",
+              "name, price, cost, id have to be provided for product creation",
           },
         ],
         data: null,
@@ -25,6 +26,7 @@ export default async function (req, res) {
       });
     }
     const newProduct = {
+      id,
       name,
       price,
       description: description || "",
@@ -41,6 +43,7 @@ export default async function (req, res) {
   if (req.method === "GET") {
     const productList = [
       {
+        id: "01",
         name: "Water, 500 mL",
         price: 300,
         enabled: true,
@@ -48,6 +51,7 @@ export default async function (req, res) {
           "https://i.picsum.photos/id/0/5000/3333.jpg?hmac=_j6ghY5fCfSD6tvtcV74zXivkJSPIfR9B8w34XeQmvU",
       },
       {
+        id: "02",
         name: "Milk, 1000mL",
         price: 250,
         enabled: false,
@@ -55,6 +59,7 @@ export default async function (req, res) {
           "https://i.picsum.photos/id/1/5000/3333.jpg?hmac=Asv2DU3rA_5D1xSe22xZK47WEAN0wjWeFOhzd13ujW4",
       },
       {
+        id: "03",
         name: "Rice, 1000g",
         price: 1000,
         enabled: true,
