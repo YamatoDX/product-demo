@@ -76,6 +76,12 @@ export default async function (req, res) {
   }
 
   return res.status(200).json({
-    message: "API Method Unknown",
+    success: false,
+    errors: [
+      {
+        message: "Requested API method doesn't have a valid operation",
+      },
+    ],
+    data: null,
   });
 }
