@@ -41,7 +41,7 @@ export default async function (req, res) {
       name,
       cost,
       price,
-      images,
+      images: images || [],
       description: description || "",
       units: units || 0,
       weightPerUnit: weightPerUnit || 0,
