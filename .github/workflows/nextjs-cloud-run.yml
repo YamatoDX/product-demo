@@ -6,6 +6,7 @@ on:
       - master
 
 env:
+  # copy the project ID here
   PROJECT_ID: ${{ secrets.CLOUD_RUN_PROJECT_NAME }}
   REGION: us-central1
   # project-name but it can be anything you want
