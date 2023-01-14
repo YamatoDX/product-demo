@@ -13,7 +13,6 @@ env:
 
 jobs:
   build-and-deploy:
-    name: Setup, Build, and Deploy
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
