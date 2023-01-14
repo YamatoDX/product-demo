@@ -2,8 +2,9 @@ name: nextjs-cloud-run
 
 on:
   push:
-    branches:
-      - master
+    branches: [master]
+  pull_request:
+    branches: [master]
 
 env:
   # copy the project ID here
