@@ -1,4 +1,4 @@
-name: Release
+name: deploy-application
 
 on:
   push:
@@ -7,7 +7,7 @@ on:
     branches: [master]
 
 jobs:
-  deploy:
+  deploy-application:
     runs-on: ubuntu-latest
 
     steps:
