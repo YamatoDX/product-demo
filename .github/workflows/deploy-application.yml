@@ -2,9 +2,9 @@ name: Release
 
 on:
   push:
-    branches: [main]
+    branches: [master]
   pull_request:
-    branches: [main]
+    branches: [master]
 
 jobs:
   deploy:
@@ -15,4 +15,3 @@ jobs:
       - run: docker build . -t vergildx/product-demo
       - run: echo "${{secrets.DOCKER_PASSWORD}}" | docker login -u ${{secrets.DOCKER_USERNAME}} --password-stdin
       - run: docker push vergildx/product-demo
-# just a comment to trigger
